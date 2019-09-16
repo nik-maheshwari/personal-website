@@ -3,7 +3,7 @@
 widget = "experience"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 40  # Order that this section will appear.
+weight = 20  # Order that this section will appear.
 
 title = "Experience"
 subtitle = ""
@@ -18,27 +18,28 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
-  company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  title = "Software Developer"
+  company = "NIBRT"
+  company_url = "www.nibrt.ie"
+  location = "Dublin"
+  date_start = "2018-09-10"
   date_end = ""
   description = """
   Responsibilities include:
   
-  * Analysing
-  * Modelling
-  * Deploying
+  * Big data analytics with Hadoop and Spark
+  * Biopharmaceutical process control
+  * R Shiny web application development
   """
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
+  title = "Statistical Modeller"
+  company = "Centre for Food Safety, University College Dublin"
   company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  location = "Dublin"
+  date_start = "2017-10-01"
+  date_end = "2018-08-24"
+  description = """Developed machine learning models to predict risks from food pathogens for 
+  5 leading Irish dairy and meat producers."""
 
 +++

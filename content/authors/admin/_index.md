@@ -1,48 +1,46 @@
 ---
 authors:
 - admin
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: My research interests include application of machine learning in Big Data analytics,  and teaching data science with R
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: PhD in Computational Infection Biology
+    institution: University College Dublin, Ireland
+    year: 2013-2017
+  - course: MSc in Bioinformatics
+    institution: Kings College London, UK
+    year: 2011-2012
+  - course: BTech in Bioinformatics
+    institution: SASTRA University, India
+    year: 2007-2011
 email: ""
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
-name: Nelson Bighetti
+- Machine learning
+- Big Data analytics
+- Bioinformatics
+name: Nikunj Maheshwari
 organizations:
-- name: Stanford University
-  url: ""
-role: Professor of Artificial Intelligence
+- name: NIBRT
+  url: "www.nibrt.ie"
+role: Software Developer
 social:
 - icon: envelope
   icon_pack: fas
   link: '#contact'
-- icon: twitter
+- icon: linkedin
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://linkedin.com/drnikunj
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/nik-maheshwari
 superuser: true
 user_groups:
 - Researchers
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Nikunj Maheshwari is a software developer/data scientist at NIBRT, working on big data analytics in biopharmaceutical manufacturing. Previously, he developed predictive risk models for 5 leading Irish food manufacturers, which is under patent processing.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+Nikunj holds a PhD in Computational Infection Biology where he mined for lanthipeptide antimicrobial peptides from ~3000 bacterial genomes. He studied these peptide's evolution over time and between different bacterial taxonomy. The genome mining pipeline can be found [here](https://github.com/nik-maheshwari/genome-mining). His other research projects include prediction of protein-protein interaction (during his Masters) and development of a [webserver](https://www.jpsr.pharmainfo.in/Documents/Volumes/vol3Issue12/jpsr%2003111204.pdf) to predict classes of snake toxins.
+
+Apart from working full time, Nikunj enjoys teaching data science and computer science fundamentals to students and professionals. You can check out his public profile [here](https://www.firsttutors.com/ireland/tutor/nikunj.maths.computer-skills/).

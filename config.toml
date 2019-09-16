@@ -21,6 +21,7 @@ googleAnalytics = ""
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 
+avatar = "avatar.jpg"
 ############################
 ## Advanced options below ##
 ############################
