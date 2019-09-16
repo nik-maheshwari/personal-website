@@ -21,7 +21,7 @@ interests:
 name: Nikunj Maheshwari
 organizations:
 - name: NIBRT
-  url: "www.nibrt.ie"
+  url: "https://www.nibrt.ie"
 role: Software Developer
 social:
 - icon: envelope
