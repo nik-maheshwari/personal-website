@@ -15,3 +15,10 @@ command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
 
 [context.branch-deploy]
 command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
+
+# A basic redirect rule
+[[redirects]]
+from = "https://hardcore-swanson-3b6636.netlify.com/*"
+to = "https://www.drnikunj.com/:splat"
+status = 301
+force = true
