@@ -20,26 +20,28 @@ date_format = "Jan 2006"
 [[experience]]
   title = "Software Developer"
   company = "NIBRT"
-  company_url = "www.nibrt.ie"
+  company_url = "https://www.nibrt.ie"
   location = "Dublin"
   date_start = "2018-09-10"
   date_end = ""
   description = """
-  Responsibilities include:
-  
-  * Big data analytics with Hadoop and Spark
+  * Big data analytics with `Hadoop` and `Spark`
   * Biopharmaceutical process control
-  * R Shiny web application development
+  * `R` Shiny web application development
+  * Funded by `Siemens Ireland` and `IDA`
   """
 
 [[experience]]
   title = "Statistical Modeller"
   company = "Centre for Food Safety, University College Dublin"
-  company_url = ""
+  company_url = "https://www.ucd.ie/cfs/"
   location = "Dublin"
   date_start = "2017-10-01"
   date_end = "2018-08-24"
-  description = """Developed machine learning models to predict risks from food pathogens for 
-  5 leading Irish dairy and meat producers."""
+  description = """
+  * `Machine learning` to predict risks from food pathogens
+  * 5 leading Irish dairy and meat producers as clients
+  * `Patent` under processing
+  """
 
 +++
