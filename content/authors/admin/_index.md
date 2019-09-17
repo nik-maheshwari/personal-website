@@ -29,7 +29,7 @@ social:
   link: '#contact'
 - icon: linkedin
   icon_pack: fab
-  link: https://linkedin.com/drnikunj
+  link: https://www.linkedin.com/in/drnikunj/
 - icon: github
   icon_pack: fab
   link: https://github.com/nik-maheshwari
