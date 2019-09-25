@@ -3,7 +3,7 @@ title: "Build a website from RStudio: An introduction"
 author: "Nikunj Maheshwari"
 summary: "My first blog, to summarise how to host a website with RMarkdown compatibility."
 date: "2019-09-25"
-tags: [netlify, blogdown, beginner, R, RStudio]
+tags: [netlify, hugo, R, RStudio]
 ---
 
 My first website was a part of my undergrad thesis, back in 2011. The website would take a text file as an input, align the input sequence(s) with a manually curated database of snake toxin peptides, and predict which superfamily of snake toxin does the input sequence(s) belong to. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called [TFTX](http://sblab.sastra.edu/tftx.html). I would love to give credit to [Aukash Kumar](https://www.linkedin.com/in/aukash-kumar-a2662558/) (my partner in crime) who carried out a big part of the analyses.
@@ -30,7 +30,11 @@ As this is my first blog, I will keep it non-technical and run through the steps
 That's it. You are good to go. If you are confused, the following flowchart will make it easier to connect the dots -
 ![Deploying website using RStudio, Hugo and Netlify](workflow-2.png)
 
-### Summary
+## Summary
 
 I can create an RMarkdown blog post on my local GitHub repo, and render my website locally. When I'm happy with the post, I can `commit` and `push` to my remote GitHub repo. Netlify takes care of the rest. That is all I need to publish a post on my website. It can't get easier than this.
+
+## Future Reading
+
+If you like the trio (`R` + `Hugo` + `Netlify`), read more on Hugo's configuration [here](https://gohugo.io/getting-started/configuration/).
 
