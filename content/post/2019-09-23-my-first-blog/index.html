@@ -1,0 +1,37 @@
+---
+title: "Build a website from RStudio: An introduction"
+author: "Nikunj Maheshwari"
+summary: "My first blog, to summarise how to host a website with RMarkdown compatibility."
+date: "Sept 25, 2019"
+tags: [netlify, blogdown, beginner, R, RStudio]
+---
+
+
+
+<p>My first website was a part of my undergrad thesis, back in 2011. The website would take a text file as an input, align the input sequence(s) with a manually curated database of snake toxin peptides, and predict which superfamily of snake toxin does the input sequence(s) belong to. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called <a href="http://sblab.sastra.edu/tftx.html">TFTX</a>. I would also give credit to <a href="https://www.linkedin.com/in/aukash-kumar-a2662558/">Aukash Kumar</a> (my partner in crime) who carried out a big part of the analyses.</p>
+<p>My motivation is different this time though, with the key question being - what do I want to convey using my website? The answer is simple - I want to blog about machine learning, big data, parallel computing, benchmarking, PhD life, code snippets, etc., with focus on using R (mainly) and Python.</p>
+<div id="this-blog" class="section level2">
+<h2>This blog</h2>
+<p>As this is my first blog, I will keep it non-technical and run through the steps required to start your own website (like this one), free and compatible with R.</p>
+<ul>
+<li><strong>Technical level:</strong> Easy</li>
+<li><strong>Link to repo:</strong> Will make my Git repo public</li>
+</ul>
+</div>
+<div id="steps-to-host-an-r-compatible-website" class="section level2">
+<h2>Steps to host an R-compatible website</h2>
+<ol style="list-style-type: decimal">
+<li>Do your basic homework and go through the R bookdown documentation, especially the “<a href="https://bookdown.org/yihui/blogdown/workflow.html">Recommended Workflow</a>” and “<a href="https://bookdown.org/yihui/blogdown/netlify.html">Netlify deployment</a>” sections</li>
+<li>Buy a domain for your website (Mine, <a href="www.drnikunj.com" class="uri">www.drnikunj.com</a>, is for 5-years)</li>
+<li>Make a new private repo on your GitHub/GitLab account, and clone the repo on your local computer</li>
+<li>Install the R package, blogdown, and Hugo: see full instructions <a href="https://bookdown.org/yihui/blogdown/installation.html">here</a></li>
+<li>Now, choose a theme for your website from <a href="https://themes.gohugo.io/">Hugo</a>. For academics, the most popular one is <a href="https://themes.gohugo.io/academic/"><code>Academic</code></a> because the majority of your site’s content can be written in R Markdown files. There are other themes such as Hugo Hero which utilises Markdown files. <em>Choose carefully</em> as switching themes later on could be cumbersome. Install the theme in your local repository. For <code>Academic</code>, follow this <a href="https://sourcethemes.com/academic/docs/install/#install-with-git">link</a></li>
+<li>Make a free account on Netlify and connect your domain to Netlify. <a href="https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/">Follow these steps</a>. Netlify will render your Hugo-based website on your domain</li>
+<li>The last step is to connect your GitHub repo to Netlify</li>
+</ol>
+<p>If you are confused, the following figure will make your life easier - <img src="workflow.png" alt="Deploying website using RStudio, Hugo and Netlify" /></p>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>I can create an RMarkdown blog post on my local GitHub repo, and render my website locally. When I’m happy, I can commit+push to my GitLab repo. Netlify takes care of the rest. That’s it, that’s all I need to publish my post on my website. It can’t get easier than this.</p>
+</div>
+</div>
