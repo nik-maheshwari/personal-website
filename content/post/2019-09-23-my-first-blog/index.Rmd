@@ -6,35 +6,35 @@ date: "2019-09-25"
 tags: [netlify, hugo, R, RStudio]
 ---
 
-My first website was a part of my undergrad thesis, back in 2011. The website would take a text file as an input, align the input sequence(s) with a manually curated database of snake toxin peptides, and predict which superfamily of snake toxin does the input sequence(s) belong to. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called [TFTX](http://sblab.sastra.edu/tftx.html). I would love to give credit to [Aukash Kumar](https://www.linkedin.com/in/aukash-kumar-a2662558/) (my partner in crime) who carried out a big part of the analyses.
+My first website was a part of my undergrad thesis, back in 2011. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called [TFTX](http://sblab.sastra.edu/tftx.html). Credit is due to [Aukash Kumar](https://www.linkedin.com/in/aukash-kumar-a2662558/) (my partner in crime) who carried out a big part of the analyses.
 
 My motivation for a website is different this time though, with the key question being - _what do I want to convey using my website_? The answer is simple - I want to blog about machine learning, big data, parallel computing, benchmarking, PhD life, code snippets, etc., with focus on using `R` (mainly) and `Python`.
 
 ## This blog
 
-As this is my first blog, I will keep it non-technical and run through the steps required to start your own website (like this one), free and compatible with `R`. You will use `Hugo` and `Netlify` for website development and continuous deployment, respectively.
+As this is my first blog, I will keep it non-technical and run through the steps required to start your own website (like this one), free and compatible with `R`. I will explain the use of `Hugo` and `Netlify` for website development and continuous deployment, respectively.
 
 * __Technical level:__ Easy
 * __Link to repo:__ Will make my Git repo public
 
 ## Steps to host an R-compatible website 
 
-1. Do your basic homework and go through the R bookdown documentation, especially the "[Recommended Workflow](https://bookdown.org/yihui/blogdown/workflow.html)" and "[Netlify deployment](https://bookdown.org/yihui/blogdown/netlify.html)" sections
-2. Buy a domain for your website (Mine, [www.drnikunj.com](www.drnikunj.com), is for 5-years)
-3. Make a new private repo on your GitHub/GitLab account, and clone the repo on your local computer
-4. Install the R package, blogdown, and Hugo: see full instructions [here](https://bookdown.org/yihui/blogdown/installation.html)
-5. Now, choose a theme for your website from [Hugo](https://themes.gohugo.io/). For academics, the most popular one is [`Academic`](https://themes.gohugo.io/academic/) because the majority of your site's content can be written in R Markdown files. There are other themes such as Hugo Hero which utilises Markdown files. _Choose carefully_ as switching themes later on could be cumbersome. Install the theme in your local repository. For `Academic`, follow this [link](https://sourcethemes.com/academic/docs/install/#install-with-git)
-6. Make a free account on Netlify and connect your domain to Netlify. [Follow these steps](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/). Netlify will render your Hugo-based website on your domain
-7. The last step is to connect your GitHub repo to Netlify
+1. Do your basic homework and go through the R bookdown documentation, especially the "[Recommended Workflow](https://bookdown.org/yihui/blogdown/workflow.html)" and "[Netlify deployment](https://bookdown.org/yihui/blogdown/netlify.html)" sections.
+2. Buy a domain for your website (Mine, [www.drnikunj.com](www.drnikunj.com), is for 5-years).
+3. Make a new private repo on your GitHub/GitLab account, and clone the repo on your local computer. Let's call this repo "__website__".
+4. On your local computer, install the R package, `blogdown`, and `Hugo` - see full instructions [here](https://bookdown.org/yihui/blogdown/installation.html)
+5. Now, choose a theme for your website from [Hugo](https://themes.gohugo.io/). For academics, the most popular one is [`Academic`](https://themes.gohugo.io/academic/) because the majority of your site's content can be written in R Markdown files. There are other themes such as Hugo Hero which utilises Markdown files. _Choose carefully_, as switching themes later on could be cumbersome. Install the theme in "__website__". For `Academic`, follow this [link](https://sourcethemes.com/academic/docs/install/#install-with-git)
+6. To render your site locally, open any file under "__website__" in RStudio and go to `Addins -> Server Site`. This will render your website on `localhost`, and create a folder called `public/` with all the HTML files. But you don't need this folder on your repo, as Netlify will take care of that (see point #7 below). Put the folder `public/*` in .gitignore. Now, commit and push your local changes to your remote repo.
+7. Make a free account on Netlify. To connect your domain and Git repo to Netlify, [Follow these steps](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/). Netlify will render your Hugo-based website (from your Git repo) on your domain.
 
 That's it. You are good to go. If you are confused, the following flowchart will make it easier to connect the dots -
 ![Deploying website using RStudio, Hugo and Netlify](workflow-2.png)
 
 ## Summary
 
-I can create an RMarkdown blog post on my local GitHub repo, and render my website locally. When I'm happy with the post, I can `commit` and `push` to my remote GitHub repo. Netlify takes care of the rest. That is all I need to publish a post on my website. It can't get easier than this.
+You can create an RMarkdown blog post on your local GitHub repo, and render your website locally. When you are happy with the post, just `commit` and `push` to your remote GitHub repo. Netlify takes care of the rest. That is all you need to publish a post on your website. It can't get easier than this.
 
 ## Future Reading
 
-If you like the trio (`R` + `Hugo` + `Netlify`), read more on Hugo's configuration [here](https://gohugo.io/getting-started/configuration/).
+If you like the trio (`R` + `Hugo` + `Netlify`), you can read more on Hugo's configuration [here](https://gohugo.io/getting-started/configuration/).
 
