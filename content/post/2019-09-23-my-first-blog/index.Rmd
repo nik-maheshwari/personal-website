@@ -1,7 +1,7 @@
 ---
 title: "Building a blog website from RStudio: An introduction"
 author: "Nikunj Maheshwari"
-summary: "My first blog, to summarise how to host a website with RMarkdown compatibility."
+summary: "My first blog post, to summarise how to host a website with RMarkdown compatibility."
 date: "2019-09-25"
 image:
   caption: '[Photo by Thomas Debray from FreeImages](https://www.freeimages.com/photo/crane-1216087)'
