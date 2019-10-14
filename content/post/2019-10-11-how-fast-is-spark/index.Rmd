@@ -56,7 +56,7 @@ Short story
 
 Short story:
 
-* Time wise, `R` performed better irrespective of data size. 
+* Time wise, `R` performed better irrespective of data size (although for a dataset larger than the one used in this blog, `sparklyr` is likely to become faster than `R`).
 * From a memory perspective, `SparkR` beats `R` and `sparklyr` (again!).
 
 <p>
@@ -65,7 +65,7 @@ Short story:
 
 ## Conclusion
 
-This blog touched the surface of benchmarking 3 technologies (`R`, `SparkR` and `sparklyr`). It highlights the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. Although I analysed the amount of memory used, the main focus should be on running time. Overall, this benchmark exercise attempts to answer a critical question in Big Data analytics - is your data big enough? If not, it is better to stick with `R` and avoid the overheads of Spark.
+This blog touched the surface of benchmarking 3 technologies (`R`, `SparkR` and `sparklyr`). It highlighted the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. When considering which technology to use for your analyses, it is wise to benchmark the algorithms you would be deploying.
 
 ### sessioninfo()
 
