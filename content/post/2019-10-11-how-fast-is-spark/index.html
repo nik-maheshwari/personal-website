@@ -54,7 +54,7 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 <h3>Linear regression</h3>
 <p>Short story:</p>
 <ul>
-<li>Time wise, <code>R</code> performed better irrespective of data size.</li>
+<li>Time wise, <code>R</code> performed better irrespective of data size (although for a dataset larger than the one used in this blog, <code>sparklyr</code> is likely to become faster than <code>R</code>).</li>
 <li>From a memory perspective, <code>SparkR</code> beats <code>R</code> and <code>sparklyr</code> (again!).</li>
 </ul>
 <p>
@@ -64,7 +64,7 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>This blog touched the surface of benchmarking 3 technologies (<code>R</code>, <code>SparkR</code> and <code>sparklyr</code>). It highlights the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. Although I analysed the amount of memory used, the main focus should be on running time. Overall, this benchmark exercise attempts to answer a critical question in Big Data analytics - is your data big enough? If not, it is better to stick with <code>R</code> and avoid the overheads of Spark.</p>
+<p>This blog touched the surface of benchmarking 3 technologies (<code>R</code>, <code>SparkR</code> and <code>sparklyr</code>). It highlighted the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. When considering which technology to use for your analysis, it is wise to benchmark the algorithm(s) you would be deploying.</p>
 <div id="sessioninfo" class="section level3">
 <h3>sessioninfo()</h3>
 <p>The following are the <code>R</code> packages and system info -</p>

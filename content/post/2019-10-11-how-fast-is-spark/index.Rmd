@@ -65,7 +65,7 @@ Short story:
 
 ## Conclusion
 
-This blog touched the surface of benchmarking 3 technologies (`R`, `SparkR` and `sparklyr`). It highlighted the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. When considering which technology to use for your analyses, it is wise to benchmark the algorithms you would be deploying.
+This blog touched the surface of benchmarking 3 technologies (`R`, `SparkR` and `sparklyr`). It highlighted the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. When considering which technology to use for your analysis, it is wise to benchmark the algorithm(s) you would be deploying.
 
 ### sessioninfo()
 
