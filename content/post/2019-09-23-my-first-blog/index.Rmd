@@ -9,8 +9,8 @@ image:
 tags: [netlify, hugo, R, RStudio]
 ---
 
-My first website was a part of my undergrad thesis, back in 2011. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called [TFTX](http://sblab.sastra.edu/tftx.html). Credit is due to [Aukash Kumar](https://www.linkedin.com/in/aukash-kumar-a2662558/) (my partner in crime) who carried out a big part of the analyses.
-
+My first website was a part of my undergrad thesis, back in 2011. I used PHP and Perl for coding, and WAMP for hosting. After I left, my project was heavily modified and incorporated into a webserver called [TFTX](http://sblab.sastra.edu/tftx.html target="_blank"). Credit is due to [Aukash Kumar](https://www.linkedin.com/in/aukash-kumar-a2662558/) (my partner in crime) who carried out a big part of the analyses.
+<a href="https://www.google.com" target="_blank">Google</a>
 My motivation for a website is different this time though, with the key question being - _what do I want to convey using my website_? The answer is simple - I want to blog about machine learning, big data, parallel computing, benchmarking, PhD life, code snippets, etc., with focus on using `R` (mainly) and `Python`.
 
 ## This blog
