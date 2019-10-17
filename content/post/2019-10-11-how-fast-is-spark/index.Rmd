@@ -13,16 +13,16 @@ Apache <a href="https://spark.apache.org/" target="_blank">Spark</a> is lightnin
 
 ## Data
 
-I previously simulated ~40 million observations using Python (I will write a post about it soon). For this exercise, I took 1% of this simulated dataset (~400,000 observations with 14 variables). To increase the dimensionality of the dataset, I replicated the variables twice, giving a final dataset of ~400,000 observations with 42 variables (including a response variable, 'y'). All observations were numeric. The analysis was carried out in RStudio v1.2.5001.
+I previously simulated ~40 million observations using Python (I will write a post about it soon). For this exercise, I took 1% of this simulated dataset (~400,000 observations with 14 variables). To increase the dimensionality of the dataset, I replicated the variables twice, giving a final dataset of ~400,000 observations with 42 variables (including a response variable, `y`). All observations were numeric. The analysis was carried out in RStudio v1.2.5001.
 
 ## Machine learning in R, SparkR and Sparklyr
 
 The makers of Apache Spark have their own `R` API called <a href="https://spark.apache.org/docs/latest/sparkr.html" target="_blank">SparkR</a>. A quick glance at Spark's official Machine Learning documentation (<a href="https://spark.apache.org/docs/latest/ml-guide.html" target="_blank">MLlib</a>) will tell you that few algorithms are not supported in `SparkR`. This is where the makers of RStudio come in, with their own `R` API called <a href="https://spark.rstudio.com" target="_blank">sparklyr</a>. `sparklyr` bridges some of the gaps (you can read more about it <a href="https://eddjberry.netlify.com/post/2017-12-05-sparkr-vs-sparklyr/" target="_blank">here</a> and <a href="https://community.rstudio.com/t/sparkr-vs-sparklyr-today/18532" target="_blank">here</a>). 
-In this post, I benchmarked two machine learning algorithms, random forest (RF) and linear regression (LR), on R, `SparkR` and `sparklyr`. For both algorithms (RF and LR), the aim was to predict the values of `y`.
+In this post, I benchmarked two machine learning algorithms, random forest (RF) and linear regression (LR), on `R`, `SparkR` and `sparklyr`. For both algorithms (RF and LR), the aim was to predict the values of `y`.
 
 ## Benchmarking
 
-I used the `bench` package which comes with a useful function called `press`. I won't go into detail, as it is better to show with a sample code below (benchmarking RF and LR in `R`) - 
+I used the `bench` package which comes with a useful function called `press`. I won't go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to show with a sample code below (benchmarking RF and LR in `R`) - 
 ```
 resultR <- bench::press(
   rows = c(1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, nrows),
@@ -36,10 +36,10 @@ resultR <- bench::press(
   }
 )
 ```
-One can think of `press` as two nested `for` loops, one for `rows` and one for `cols`. The benchmarking was done over 5 iterations for each algorithm. Algorithm parameters were kept the same for a fair comparison.
+One can think of `press` as two nested `for` loops, one for `rows` and one for `cols`. The benchmarking was done over 5 iterations for each algorithm. Algorithm parameters in `R`, `SparkR` and `sparklyr` were kept the same for a fair comparison.
 
 ## Results
-I will break down the results for each algorithm separately, as results are quite different. The focus was on `running time` and `memory` used as the size of the data increases.
+I will break down the results for each algorithm separately, as results are quite different. The focus was on `running time` and `memory` used (y-axis) as the size of the data increases (x-axis).
 
 ### Random forest
 
@@ -69,7 +69,7 @@ This blog touched the surface of benchmarking 3 technologies (`R`, `SparkR` and 
 
 ### sessioninfo()
 
-The following are the `R` packages and system info - 
+The following are the `R` packages and system information - 
 
 ```
 R version 3.6.0 (2019-04-26)
