@@ -14,15 +14,15 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 <p>Apache <a href="https://spark.apache.org/" target="_blank">Spark</a> is lightning fast and has become the go-to technology for large-scale data analyses. It provides support for multiple programming languages such as R, Python, Java and Scala. Compared to <code>R</code>, Spark is amazingly fast in loading and handling large datasets (~40 million observations with 14 variables), but there are only a handful of blogs benchmarking Spark and <code>R</code> with real world examples (I found a few <a href="https://databricks.com/blog/2018/05/03/benchmarking-apache-spark-on-a-single-node-machine.html" target="_blank">here</a>, <a href="https://bigdata-madesimple.com/tools-in-the-data-armoury-r-vs-spark/" target="_blank">here</a> and <a href="https://databricks.com/blog/2018/08/15/100x-faster-bridge-between-spark-and-r-with-user-defined-functions-on-databricks.html" target="_blank">here</a>). None of these address the benchmarking in <code>R</code> from a machine learning point of view, and this blog attempts to do that.</p>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>I previously simulated ~40 million observations using Python (I will write a post about it soon). For this exercise, I took 1% of this simulated dataset (~400,000 observations with 14 variables). To increase the dimensionality of the dataset, I replicated the variables twice, giving a final dataset of ~400,000 observations with 42 variables (including a response variable, ‘y’). All observations were numeric. The analysis was carried out in RStudio v1.2.5001.</p>
+<p>I previously simulated ~40 million observations using Python (I will write a post about it soon). For this exercise, I took 1% of this simulated dataset (~400,000 observations with 14 variables). To increase the dimensionality of the dataset, I replicated the variables twice, giving a final dataset of ~400,000 observations with 42 variables (including a response variable, <code>y</code>). All observations were numeric. The analysis was carried out in RStudio v1.2.5001.</p>
 </div>
 <div id="machine-learning-in-r-sparkr-and-sparklyr" class="section level2">
 <h2>Machine learning in R, SparkR and Sparklyr</h2>
-<p>The makers of Apache Spark have their own <code>R</code> API called <a href="https://spark.apache.org/docs/latest/sparkr.html" target="_blank">SparkR</a>. A quick glance at Spark’s official Machine Learning documentation (<a href="https://spark.apache.org/docs/latest/ml-guide.html" target="_blank">MLlib</a>) will tell you that few algorithms are not supported in <code>SparkR</code>. This is where the makers of RStudio come in, with their own <code>R</code> API called <a href="https://spark.rstudio.com" target="_blank">sparklyr</a>. <code>sparklyr</code> bridges some of the gaps (you can read more about it <a href="https://eddjberry.netlify.com/post/2017-12-05-sparkr-vs-sparklyr/" target="_blank">here</a> and <a href="https://community.rstudio.com/t/sparkr-vs-sparklyr-today/18532" target="_blank">here</a>). In this post, I benchmarked two machine learning algorithms, random forest (RF) and linear regression (LR), on R, <code>SparkR</code> and <code>sparklyr</code>. For both algorithms (RF and LR), the aim was to predict the values of <code>y</code>.</p>
+<p>Apache Spark has its own <code>R</code> API called <a href="https://spark.apache.org/docs/latest/sparkr.html" target="_blank">SparkR</a>. A quick glance at Spark’s official Machine Learning documentation (<a href="https://spark.apache.org/docs/latest/ml-guide.html" target="_blank">MLlib</a>) will tell you that few algorithms are not supported in <code>SparkR</code>. This is where the makers of RStudio come in, with their own <code>R</code> API called <a href="https://spark.rstudio.com" target="_blank">sparklyr</a>. <code>sparklyr</code> bridges some of the gaps (you can read more about it <a href="https://eddjberry.netlify.com/post/2017-12-05-sparkr-vs-sparklyr/" target="_blank">here</a> and <a href="https://community.rstudio.com/t/sparkr-vs-sparklyr-today/18532" target="_blank">here</a>). In this post, I benchmarked two machine learning algorithms, random forest (RF) and linear regression (LR), on <code>R</code>, <code>SparkR</code> and <code>sparklyr</code>. For both algorithms (RF and LR), the aim was to predict the values of <code>y</code>.</p>
 </div>
 <div id="benchmarking" class="section level2">
 <h2>Benchmarking</h2>
-<p>I used the <code>bench</code> package which comes with a useful function called <code>press</code>. I won’t go into detail, as it is better to show with a sample code below (benchmarking RF and LR in <code>R</code>) -</p>
+<p>I used the <code>bench</code> package which comes with a useful function called <code>press</code>. I won’t go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to show with a sample code below (benchmarking RF and LR in <code>R</code>) -</p>
 <pre><code>resultR &lt;- bench::press(
   rows = c(1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, nrows),
   cols = c(ncols/2, ncols),
@@ -34,11 +34,11 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
     )
   }
 )</code></pre>
-<p>One can think of <code>press</code> as two nested <code>for</code> loops, one for <code>rows</code> and one for <code>cols</code>. The benchmarking was done over 5 iterations for each algorithm. Algorithm parameters were kept the same for a fair comparison.</p>
+<p>One can think of <code>press</code> as two nested <code>for</code> loops, one for <code>rows</code> and one for <code>cols</code>. The benchmarking was done over 5 iterations for each algorithm. Algorithm parameters in <code>R</code>, <code>SparkR</code> and <code>sparklyr</code> were kept the same for a fair comparison.</p>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
-<p>I will break down the results for each algorithm separately, as results are quite different. The focus was on <code>running time</code> and <code>memory</code> used as the size of the data increases.</p>
+<p>I will break down the results for each algorithm separately, as results are quite different. The focus was on <code>running time</code> and <code>memory</code> used (y-axis) as the size of the data increases (x-axis).</p>
 <div id="random-forest" class="section level3">
 <h3>Random forest</h3>
 <p>Short story</p>
@@ -67,7 +67,7 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 <p>This blog touched the surface of benchmarking 3 technologies (<code>R</code>, <code>SparkR</code> and <code>sparklyr</code>). It highlighted the advantages and disadvantages of these technologies in the context of machine learning algorithms and size of the data. When considering which technology to use for your analysis, it is wise to benchmark the algorithm(s) you would be deploying.</p>
 <div id="sessioninfo" class="section level3">
 <h3>sessioninfo()</h3>
-<p>The following are the <code>R</code> packages and system info -</p>
+<p>The following are the <code>R</code> packages and system information -</p>
 <pre><code>R version 3.6.0 (2019-04-26)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows Server &gt;= 2012 x64 (build 9200)
