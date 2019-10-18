@@ -9,7 +9,7 @@ image:
 tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 ---
 
-Apache <a href="https://spark.apache.org/" target="_blank">Spark</a> is lightning fast and has become the go-to technology for large-scale data analyses. It provides support for multiple programming languages such as R, Python, Java and Scala. Compared to `R`, Spark is amazingly fast in loading and handling large datasets (~40 million observations with 14 variables), but there are only a handful of blogs benchmarking Spark and `R` with real world examples (I found a few <a href="https://databricks.com/blog/2018/05/03/benchmarking-apache-spark-on-a-single-node-machine.html" target="_blank">here</a>, <a href="https://bigdata-madesimple.com/tools-in-the-data-armoury-r-vs-spark/" target="_blank">here</a> and <a href="https://databricks.com/blog/2018/08/15/100x-faster-bridge-between-spark-and-r-with-user-defined-functions-on-databricks.html" target="_blank">here</a>). None of these address the benchmarking in `R` from a machine learning point of view, and this blog attempts to do that.
+Apache <a href="https://spark.apache.org/" target="_blank">Spark</a> has become the go-to technology for large-scale data analyses. It provides support for multiple programming languages such as R, Python, Java and Scala. Compared to `R`, Spark is impressively fast in loading and handling large datasets (~40 million observations with 14 variables), but there are only a handful of blogs benchmarking Spark and `R` with real world examples (I found a few <a href="https://databricks.com/blog/2018/05/03/benchmarking-apache-spark-on-a-single-node-machine.html" target="_blank">here</a>, <a href="https://bigdata-madesimple.com/tools-in-the-data-armoury-r-vs-spark/" target="_blank">here</a> and <a href="https://databricks.com/blog/2018/08/15/100x-faster-bridge-between-spark-and-r-with-user-defined-functions-on-databricks.html" target="_blank">here</a>). None of these address the benchmarking in `R` from a machine learning point of view, and I am going to attempt to do that.
 
 ## Data
 
@@ -22,7 +22,7 @@ In this post, I benchmarked two machine learning algorithms, random forest (RF) 
 
 ## Benchmarking
 
-I used the `bench` package which comes with a useful function called `press`. I won't go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to show with a sample code below (benchmarking RF and LR in `R`) - 
+I used the `bench` package which comes with a useful function called `press`. I won't go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to demonstrate this with the sample code below (benchmarking RF and LR in `R`) - 
 ```
 resultR <- bench::press(
   rows = c(1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, nrows),
@@ -36,7 +36,7 @@ resultR <- bench::press(
   }
 )
 ```
-One can think of `press` as two nested `for` loops, one for `rows` and one for `cols`. The benchmarking was done over 5 iterations for each algorithm. Algorithm parameters in `R`, `SparkR` and `sparklyr` were kept the same for a fair comparison.
+One can think of `press` as two nested `for` loops, one for `rows` and one for `cols`. The benchmarking was done over 5 iterations of each algorithm. Algorithm parameters in `R`, `SparkR` and `sparklyr` were kept the same for a fair comparison.
 
 ## Results
 I will break down the results for each algorithm separately, as results are quite different. The focus was on `running time` and `memory` used (y-axis) as the size of the data increases (x-axis).
