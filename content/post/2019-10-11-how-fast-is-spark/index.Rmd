@@ -22,7 +22,7 @@ In this post, I benchmarked two machine learning algorithms, random forest (RF) 
 
 ## Benchmarking
 
-I used the `bench` package which comes with a useful function called `press`. I won't go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to demonstrate this with the sample code below (benchmarking RF and LR in `R`) - 
+I used the `bench` package which comes with a useful function called `press`. I won't go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank">here</a>), as it is better to demonstrate this with the sample code below (benchmarking RF and LR in `R`) - 
 ```
 resultR <- bench::press(
   rows = c(1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, nrows),

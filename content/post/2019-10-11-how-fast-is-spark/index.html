@@ -22,7 +22,7 @@ tags: [R, Spark, SparkR, sparklyr, machine learning, benchmarking, Big Data]
 </div>
 <div id="benchmarking" class="section level2">
 <h2>Benchmarking</h2>
-<p>I used the <code>bench</code> package which comes with a useful function called <code>press</code>. I won’t go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank")here</a>), as it is better to demonstrate this with the sample code below (benchmarking RF and LR in <code>R</code>) -</p>
+<p>I used the <code>bench</code> package which comes with a useful function called <code>press</code>. I won’t go into detail (more information can be found <a href="https://github.com/r-lib/bench#benchpress" target="_blank">here</a>), as it is better to demonstrate this with the sample code below (benchmarking RF and LR in <code>R</code>) -</p>
 <pre><code>resultR &lt;- bench::press(
   rows = c(1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, nrows),
   cols = c(ncols/2, ncols),
