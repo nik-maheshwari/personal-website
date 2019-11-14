@@ -39,5 +39,5 @@ You can create an RMarkdown blog post on your local GitHub repo, and render your
 
 ## Future Reading
 
-If you like the trio (`R` + `Hugo` + `Netlify`), you can read more on Hugo's configuration <a href="https://gohugo.io/getting-started/configuration/" target="_blank">here</a>.
+If you like the trio (`R` + `Hugo` + `Netlify`), you can read more on Hugo's configuration <a href="https://gohugo.io/getting-started/configuration/" target="_blank">here</a>. Additionally, my Github repo for the website can be found <a href="https://github.com/nik-maheshwari/personal-website" target="_blank">here</a>.
 
