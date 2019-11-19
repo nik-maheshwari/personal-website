@@ -18,12 +18,22 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
+  title = "Analytics Manager"
+  company = "Bank of Ireland"
+  company_url = "https://www.bankofireland.com"
+  location = "Dublin"
+  date_start = "2019-11-18"
+  date_end = ""
+  description = """
+  """
+
+[[experience]]
   title = "Software Developer"
   company = "NIBRT"
   company_url = "https://www.nibrt.ie"
   location = "Dublin"
   date_start = "2018-09-10"
-  date_end = ""
+  date_end = "2019-10-31"
   description = """
   * Big data analytics with `Hadoop` and `Spark`
   * Biopharmaceutical process control
