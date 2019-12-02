@@ -7,6 +7,7 @@ view: 2
 ---
 
 ## I am passionate about teaching data science to students and professionals, and have been doing so for the last 4+ years. You can read my previous reviews [here](https://www.firsttutors.com/ireland/tutor/nikunj.maths.computer-skills/).
+
 I am based in Dublin, Ireland and I strive to tutor face to face. If my client is not in Dublin, video calls via Skype works well.
 Below are some of the tutoring areas that I cover - 
 
@@ -22,6 +23,6 @@ A big data project has basically the same structure as a data science project (s
 
 I have been coding since I was 15 years old, and have knowledge of languages such as C, C++, Java, etc. 
 
-If you are interested in availing any of the above services, please contact me using the form [here]({{< ref "/#contact" >}}). Provide as much information as possible and I will get back to you within 24 hours.
+If you are interested in availing any of the above services, please contact me for a free initial consultation using the form [here]({{< ref "/#contact" >}}). Provide as much information as possible and I will get back to you within 24 hours. If I believe I can cover what you require, I will take on the tutoring task. I have never taken on a project which I think I will not be able to finish.
 
 ## __DISCLAIMER__ I only tutor part-time as I have a full time job. At no point will I mix data/code from tutoring with my work and vice-versa. Any software code provided by me is for tutoring purpose only, and I claim no responsibility of the code's implementation in production environment.

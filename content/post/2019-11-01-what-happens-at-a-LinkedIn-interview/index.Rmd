@@ -38,7 +38,7 @@ The next 2 rounds were all about machine learning (predictions, specificity, sen
 * Practice everything in Python (my recruiter went silent when I asked him what language should I practice in, so I went into the interview without brushing up on Python.)
 * Pick a machine learning algorithm that you are comfortable with and know it from start to finish
 * Go through LinkedIn's Engineering blog <a href="https://engineering.linkedin.com/blog" target="_blank">here</a> to get an idea of what they are up to
-* Talk to the interviewers while writing on the whiteboard. They really want to know your path of thinking and how you approach a problem.
+* Talk to the interviewers while writing on the whiteboard. They really want to know your path of thinking and how you approach a problem
 * I would highly recommend going through this <a href="https://www.amazon.co.uk/Algorithm-Design-Manual-Steven-Skiena-ebook/dp/B00B8139Z8/)" target="_blank">book</a>, and especially the Interview questions at the end of each chapter
 
 ## __Disclaimer__ - This was my personal experience at the time. Don't take it for granted that the interview structure would be the same for you. I take no responsibility whatsoever for the outcome of your interview. Best tip? [Hope for the best, plan for the worst](https://getyarn.io/yarn-clip/ec8834a2-1d1e-4f7e-9e67-bf4721db747a)
