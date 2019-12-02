@@ -1,0 +1,44 @@
+---
+title: "What happens at a LinkedIn interview?"
+author: "Nikunj Maheshwari"
+summary: "A first hand narrative of an onsite interview at LinkedIn office in Dublin."
+date: "2019-11-01"
+image:
+  caption: '[Photo by Razvan Caliman from FreeImages](https://www.freeimages.com/photo/meeting-room-1213007)'
+  focal_point: 'center'
+tags: [LinkedIn, interview, machine learning, data science]
+---
+
+So you have cleared the first round of coding interview at LinkedIn, congratulations! It is an achievement, but don't get carried away. The next call from your LinkedIn recruiter will break the good/bad news - you are invited to an onsite interview for 5 hours.
+
+### Job detail
+
+Before I go any further, here are some details about the role I went after -
+
+* Title: Software engineer - Machine Learning
+* Location: Dublin, Ireland
+* Type: Permanent, Full Time
+* Team: Data Engineering
+
+### The 5 hour interview
+
+So now that you have a general idea about the role and type of questions that would be on the table, let me give you a breakdown of what happens during a 5 hour onsite interview at LinkedIn. I will follow up with a restrospect of the interview and what I could have done better. Yes, I didn't get the job.
+
+The interview was broken down into 5 one hour rounds. This included a lunch break with one of the team members, but treat it as a pseudo-interview. For the sake of simplicity, let the interviewers be called X and Y, with different X and Y for each round. At the start of each round, there were gentle introductions from X and Y, and then from you. In each round, one was expected to write a function, preferably in Python.
+
+The first 2 rounds were heavily focused on algorithm basics and design, with questions ranging from dictionaries to loop to sampling.
+
+The Lunch round was quite informal with very little technical question. This is your chance to ask any question about LinkedIn or the team from one of the team members who accompany you to lunch.
+
+The next 2 rounds were all about machine learning (predictions, specificity, sensitivity, etc). Problem statements revolved around real life text classification and explaining any one of the machine learning algorithms fit for the purpose. The interviewers went deep in the maths behind the algorithm, and touched on hyperparameters tuning and model performance.
+
+### Retrospective
+
+* Back to the call, your recruiter will ask your availability for the onsite interview. Choose a Monday as it will give you the weekend to relax and brush up on your basics
+* Practice everything in Python (my recruiter went silent when I asked him what language should I practice in, so I went into the interview without brushing up on Python.)
+* Pick a machine learning algorithm that you are comfortable with and know it from start to finish
+* Go through LinkedIn's Engineering blog <a href="https://engineering.linkedin.com/blog" target="_blank">here</a> to get an idea of what they are up to
+* Talk to the interviewers while writing on the whiteboard. They really want to know your path of thinking and how you approach a problem.
+* I would highly recommend going through this <a href="https://www.amazon.co.uk/Algorithm-Design-Manual-Steven-Skiena-ebook/dp/B00B8139Z8/)" target="_blank">book</a>, and especially the Interview questions at the end of each chapter
+
+## __Disclaimer__ - This was my personal experience at the time. Don't take it for granted that the interview structure would be the same for you. I take no responsibility whatsoever for the outcome of your interview. Best tip? [Hope for the best, plan for the worst](https://getyarn.io/yarn-clip/ec8834a2-1d1e-4f7e-9e67-bf4721db747a)

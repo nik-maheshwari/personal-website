@@ -24,4 +24,4 @@ I have been coding since I was 15 years old, and have knowledge of languages suc
 
 If you are interested in availing any of the above services, please contact me using the form [here]({{< ref "/#contact" >}}). Provide as much information as possible and I will get back to you within 24 hours.
 
-## __DISCLAIMER__ I only tutor part-time as I have a full time job. At no point will I mix data from tutoring with my work and vice-versa. Any software code provided by me is for tutoring purpose only, and I claim no responsibility of the code's implementation in production environment.
+## __DISCLAIMER__ I only tutor part-time as I have a full time job. At no point will I mix data/code from tutoring with my work and vice-versa. Any software code provided by me is for tutoring purpose only, and I claim no responsibility of the code's implementation in production environment.
