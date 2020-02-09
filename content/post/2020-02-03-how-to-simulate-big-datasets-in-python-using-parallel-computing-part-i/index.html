@@ -11,7 +11,7 @@ tags:
   - simulation
   - parallel computing
   - Big Data
-summary: 'Simulating big dataset part I - Finding rate of change of a time-dependent dataset.'
+summary: 'Simulating big dataset - part I'
 featured: yes
 image:
   caption: 'Photo by Nikunj Maheshwari'
@@ -20,7 +20,7 @@ image:
 
 
 
-<p>When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 2 parts -</p>
+<p>When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me take an existing, low-quantity dataset and simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 2 parts -</p>
 <ol style="list-style-type: decimal">
 <li>Dataset and finding the rate of change (this post)</li>
 <li>Running simulation with parallel computing</li>
@@ -36,6 +36,7 @@ image:
 06/08/2015 12:34:30, 200.14
 06/08/2015 12:35:00, 199.94
 06/08/2015 12:35:30, 199.66
+...
 </code></pre>
 <p>Your main objective is to simulate this time-dependent dataset, enough to build a machine learning or forecasting model. There are a few ways of doing this -</p>
 <ul>
@@ -67,7 +68,8 @@ rate = values.diff()*(1/data[&#39;index_col&#39;].diff().values)</code></pre>
 06/08/2015 12:34:00, 199.96, 0.027333333
 06/08/2015 12:34:30, 200.14, 0.006
 06/08/2015 12:35:00, 199.94, -0.006666667
-06/08/2015 12:35:30, 199.66, -0.009333333</code></pre>
+06/08/2015 12:35:30, 199.66, -0.009333333
+...</code></pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
