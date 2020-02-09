@@ -1,0 +1,80 @@
+---
+title: 'How to simulate big datasets in Python using parallel computing - Part I :
+  Find rate of a time-dependent parameter'
+author: "Nikunj Maheshwari"
+date: '2020-02-03'
+categories:
+  - Simulation
+  - Python
+tags:
+  - Python
+  - simulation
+  - parallel computing
+  - Big Data
+summary: 'Simulating big dataset part I - Finding rate of change of a time-dependent dataset.'
+featured: yes
+image:
+  caption: 'Photo by Nikunj Maheshwari'
+  focal_point: 'center'
+---
+
+
+
+<p>When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 2 parts -</p>
+<ol style="list-style-type: decimal">
+<li>Dataset and finding the rate of change (this post)</li>
+<li>Running simulation with parallel computing</li>
+</ol>
+<!-- If you are building risk monitoring systems for a continuous process, such as sensors, -->
+<div id="dataset" class="section level2">
+<h2>Dataset</h2>
+<p>Your company has a limited set of data collected continuously from, say, sensors deployed in a process monitoring environment. For example, say paramX is measured every 30 seconds and the values are recorded like the following -</p>
+<pre><code>TimeStamp, paramX
+06/08/2015 12:33:00, 199.84
+06/08/2015 12:33:30, 199.14
+06/08/2015 12:34:00, 199.96
+06/08/2015 12:34:30, 200.14
+06/08/2015 12:35:00, 199.94
+06/08/2015 12:35:30, 199.66
+</code></pre>
+<p>Your main objective is to simulate this time-dependent dataset, enough to build a machine learning or forecasting model. There are a few ways of doing this -</p>
+<ul>
+<li>Approach #1: Simulate each variable in the data univariately</li>
+<li>Approach #2: Simulate each variable in the data multivariately</li>
+</ul>
+<p>Approach #1 will mainly consist of finding the rate of change of each variable in the original dataset and simulating each variable independently. On the other hand, approach #2 will be similar to approach #1 but will include maintaining correlation between variables while simulating them. This would be essential to preserve the scientific relationship between variables, as they will be monitoring a process and a change in one variable might have an effect on other variable(s).</p>
+<p>Whichever approach you want to follow, finding the rate of change of each variable is common between them, and I will cover that in this part of the series.</p>
+</div>
+<div id="finding-the-rate-of-change" class="section level2">
+<h2>Finding the rate of change</h2>
+<p>In simple terms, rate is change in quantity A with respect to another quantity B. Common examples are speed (change in distance with respect to change in time) and accelaration (change in speed with respect to time). Usually, rate is calculated with respect to a time quantity. In our dataset, we are interested in finding the rate of parameter X (paramX) with respect to time. We notice that the time format is not a numeric type and that would be critical in our calculation. In Python, we can convert time format to seconds using the following piece of code -</p>
+<pre><code>index = pd.to_datetime(data.iloc[:, 0]).values.astype(np.int64)//10**9
+index = pd.to_datetime(index, unit=&quot;s&quot;)</code></pre>
+<p>Here, <code>data</code> is a pandas dataframe containing our original dataset.</p>
+<p>Next we add <code>index</code> to <code>data</code></p>
+<pre><code>data[&#39;index_col&#39;] = index</code></pre>
+<p>and calculate the rate as below -</p>
+<pre><code># get parameter values
+values = pd.Series(data.iloc[:, 1].values, index=index)
+
+# Find rate as difference of two consecutive values divided by
+# their date difference (in seconds)
+rate = values.diff()*(1/data[&#39;index_col&#39;].diff().values)</code></pre>
+<p>We can save this rate as an additional column, do some cleaning and arrive at the final dataset as below -</p>
+<pre><code>TimeStamp, paramX, rate
+06/08/2015 12:33:00, 199.84, 0
+06/08/2015 12:33:30, 199.14, -0.023333333
+06/08/2015 12:34:00, 199.96, 0.027333333
+06/08/2015 12:34:30, 200.14, 0.006
+06/08/2015 12:35:00, 199.94, -0.006666667
+06/08/2015 12:35:30, 199.66, -0.009333333</code></pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>That’s it, we have successfully calculated rate of change of a time-dependent dataset. We will use this rate of change in simulating multi-million observations dataset (my next post).</p>
+</div>
+<div id="code" class="section level2">
+<h2>Code</h2>
+<p>You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation" target="_blank">here</a>.</p>
+<p>If you like this post, please leave a comment on my LinkedIn status. Thank you for reading.</p>
+</div>
