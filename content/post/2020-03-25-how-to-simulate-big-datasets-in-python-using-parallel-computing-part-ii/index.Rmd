@@ -1,0 +1,105 @@
+---
+title: 'How to simulate big datasets in Python using parallel computing - Part II :
+  Generating samples using parallel computing'
+author: "Nikunj Maheshwari"
+date: '2020-03-25'
+categories:
+  - Simulation
+  - Python
+tags:
+  - Python
+  - simulation
+  - parallel computing
+  - Big Data
+summary: 'Simulating big dataset - part II'
+featured: yes
+image:
+  caption: 'Photo by Nikunj Maheshwari'
+  focal_point: 'center'
+---
+
+This post picks up from the last <a href="https://www.drnikunj.com/post/2020-02-03-how-to-simulate-big-datasets-in-python-using-parallel-computing-part-i/" target="_blank">post</a>. We ended up calculating the rate of change of a time-dependent parameter. The current post focus on the next step - sampling this distribution of rate of change using parallel computing. 
+
+Why sampling rather than randomly selecting the rates from the original distribution? This is because the rate of change in future time points may not be the same as observed in the original distribution. Moreover, sampling makes sure the sampled points follow the same distribution as the original distribution.
+
+I will make use of Kernel Density Estimation in Python (KDE). KDE is used to find the probability density function of a distribution. Moreover, KDE is also beneficial in simulating data points which follows the distribution of a specific set of points. In our case, we want to simulate rate of change which follow the original distribution and this is where KDE comes in.
+
+## Code
+
+You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/rateSimulation.py" target="_blank">here</a> and <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/resources/paramX_rate.csv" target="_blank">here</a>.
+
+## Dataset
+At the end of the 1st post, our 'paramX_rate.csv' looks something like this -
+```
+TimeStamp	        paramX	rate
+06/08/2015 12:33:00	199.84	0
+06/08/2015 12:33:30	199.14	-0.023333333
+06/08/2015 12:34:00	199.96	0.027333333
+06/08/2015 12:34:30	200.14	0.006
+
+```
+
+## Problem
+Generate 10000 samples of rate of change of paramX whose original rate of change has been calculated.
+
+## Solution
+Although the solution can be achieved using Python serially, I want to show you how we can achieve it using parallel computing. Also, knowing how parallel computing works will assist in understanding the last and final post.
+
+Unlike serial computing where tasks are executed one by one, parallel computing executes multiple tasks simultaneaously and hence, speeds up the overall execution time. It saves time and money, and makes better use of your hardware (most modern laptops/desktops are capable of parallel computing). To check if your system is capable of running parallel processes, run the following command on Command Prompt in Windows - ```echo %NUMBER_OF_PROCESSORS%``` or the following command on Terminal in Linux/Unix -
+``` lscpu ```
+
+If number of cores > 1, you should be able to run parallel processes.
+
+### Parallel computing using Pool
+The `Pool` class in Python represents a pool of worker processes. It has methods to designate tasks to each worker and then collect the results from all workers. We will be focusing on one particular method of this class - `starmap`. The syntax to use this method is as follow - 
+```
+pool.starmap(<Python_method>, ((<arguments_to_pass>),))
+```
+and it returns the collated result as a list with one entry.
+
+For example, the following code will start 1 worker process, pass 3 arguments to a user-defined method `f` using an instance of the `Pool` class, and print the value 6.
+
+```
+from multiprocessing import Pool
+
+def f(x,y,z):
+    return x*y*z
+
+if __name__ == '__main__':
+    pool = Pool(processes=1)
+    result = pool.starmap(f, ((1, 2, 3),))
+    print(result[0])
+    pool.terminate()
+```
+
+Here, instead of a user-defined method, we can use any of Python's in-built methods.
+Final note, remember to kill all the worker processes (`pool.termiate()`)when finished with parallel computing. The above code is available <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/testParallel.py" target="_blank">here</a>.
+
+### KDE in Python
+Once we know how methods and passing arguments works with Pool, we can follow the below steps to generate new values of rate of distribution -
+
+1. Get equally spaced data points in original rate distribution -
+```
+x_grid = pool.starmap(np.linspace, ((min(data), max(data), samples),))
+```
+2. Use Gaussian kernels for KDE estimation -
+```
+kde = pool.starmap(gaussian_kde, ((data, "scott"),))
+```
+3. Evaluate the probability density of KDE on `x_grid` -
+```
+kdepdf = kde[0].evaluate(x_grid[0])
+```
+4. After a few more steps, find new values that maintain the original distribution -
+```
+value_bins = pool.starmap(np.searchsorted, ((cdf, values),))
+random_rate = x_grid[0][tuple(value_bins)]
+```
+
+Congratulations, you have just generated a sample of rates which follow the original distribution of rate of change of a time-dependent parameter. Using the same logic, you can generate sample of rates for several different time-dependent parameters. A complete code and detailed explanation is available on my Github, as mentioned at the start of this post.
+
+## Conclusion
+
+That's it, we have successfully generated a sample of rate of change of a time-dependent dataset. We will use this sample in simulating multi-million observations dataset (watch out for my next post).
+
+Thank you for reading.

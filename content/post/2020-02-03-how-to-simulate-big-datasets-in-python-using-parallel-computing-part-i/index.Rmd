@@ -18,14 +18,18 @@ image:
   focal_point: 'center'
 ---
 
-When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me take an existing, low-quantity dataset and simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 2 parts -
+When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me take an existing, low-quantity dataset and simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 3 posts -
 
 1. Dataset and finding the rate of change (this post)
-2. Running simulation with parallel computing
+2. Generating samples of rates using parallel computing
+3. Simulating new observations using parallel computing
 
-<!-- If you are building risk monitoring systems for a continuous process, such as sensors, -->
+## Code
+
+You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/findRate.py" target="_blank">here</a>.
+
 ## Dataset
-Your company has a limited set of data collected continuously from, say, sensors deployed in a process monitoring environment. For example, say paramX is measured every 30 seconds and the values are recorded like the following -
+Your company has a limited set of data collected continuously from, say, sensors deployed in a process monitoring environment. For example, say paramX is measured every 30 seconds and the values are recorded as follow -
 ```
 TimeStamp, paramX
 06/08/2015 12:33:00, 199.84
@@ -83,11 +87,6 @@ TimeStamp, paramX, rate
 
 ## Conclusion
 
-That's it, we have successfully calculated rate of change of a time-dependent dataset. We will use this rate of change in simulating multi-million observations dataset (my next post).
+That's it, we have successfully calculated rate of change of a time-dependent dataset. We will use this rate of change in generating a large sample of rates using parallel computing (my next post).
 
-## Code
-
-You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation" target="_blank">here</a>.
-
-If you like this post, please leave a comment on my LinkedIn status.
 Thank you for reading.

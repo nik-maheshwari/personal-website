@@ -20,15 +20,19 @@ image:
 
 
 
-<p>When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me take an existing, low-quantity dataset and simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 2 parts -</p>
+<p>When you start a new role as a data scientist in an SME, one of the challenges faced is the existence of a good quality dataset to work with. On several occasions, it could be a while before such data becomes available. This was the reason that made me take an existing, low-quantity dataset and simulate millions of time-series observations using Python in a meaningful way (more about that later). I have broken down the simulation steps into 3 posts -</p>
 <ol style="list-style-type: decimal">
 <li>Dataset and finding the rate of change (this post)</li>
-<li>Running simulation with parallel computing</li>
+<li>Generating samples of rates using parallel computing</li>
+<li>Simulating new observations using parallel computing</li>
 </ol>
-<!-- If you are building risk monitoring systems for a continuous process, such as sensors, -->
+<div id="code" class="section level2">
+<h2>Code</h2>
+<p>You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/findRate.py" target="_blank">here</a>.</p>
+</div>
 <div id="dataset" class="section level2">
 <h2>Dataset</h2>
-<p>Your company has a limited set of data collected continuously from, say, sensors deployed in a process monitoring environment. For example, say paramX is measured every 30 seconds and the values are recorded like the following -</p>
+<p>Your company has a limited set of data collected continuously from, say, sensors deployed in a process monitoring environment. For example, say paramX is measured every 30 seconds and the values are recorded as follow -</p>
 <pre><code>TimeStamp, paramX
 06/08/2015 12:33:00, 199.84
 06/08/2015 12:33:30, 199.14
@@ -73,10 +77,6 @@ rate = values.diff()*(1/data[&#39;index_col&#39;].diff().values)</code></pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>That’s it, we have successfully calculated rate of change of a time-dependent dataset. We will use this rate of change in simulating multi-million observations dataset (my next post).</p>
-</div>
-<div id="code" class="section level2">
-<h2>Code</h2>
-<p>You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation" target="_blank">here</a>.</p>
-<p>If you like this post, please leave a comment on my LinkedIn status. Thank you for reading.</p>
+<p>That’s it, we have successfully calculated rate of change of a time-dependent dataset. We will use this rate of change in generating a large sample of rates using parallel computing (my next post).</p>
+<p>Thank you for reading.</p>
 </div>
