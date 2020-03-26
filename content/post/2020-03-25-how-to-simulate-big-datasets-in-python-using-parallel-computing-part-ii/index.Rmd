@@ -22,7 +22,7 @@ This post picks up from the last <a href="https://www.drnikunj.com/post/2020-02-
 
 Why sampling rather than randomly selecting the rates from the original distribution? This is because the rate of change in future time points may not be the same as observed in the original distribution. Moreover, sampling makes sure the sampled points follow the same distribution as the original distribution.
 
-I will make use of Kernel Density Estimation in Python (KDE). KDE is used to find the probability density function of a distribution. Moreover, KDE is also beneficial in simulating data points which follows the distribution of a specific set of points. In our case, we want to simulate rate of change which follow the original distribution and this is where KDE comes in.
+I will make use of Kernel Density Estimation in Python (KDE). KDE is used to find the probability density function of a distribution. Moreover, KDE is also beneficial in simulating data points which follows the distribution of a specific set of points. In our case, we want to simulate rate of change which follow the original distribution and this is where KDE comes in. To know more about KDE, please click <a href="https://deepai.org/machine-learning-glossary-and-terms/kernel-density-estimation" target="_blank">here</a>.
 
 ## Code
 
@@ -51,9 +51,9 @@ Unlike serial computing where tasks are executed one by one, parallel computing 
 If number of cores > 1, you should be able to run parallel processes.
 
 ### Parallel computing using Pool
-The `Pool` class in Python represents a pool of worker processes. It has methods to designate tasks to each worker and then collect the results from all workers. We will be focusing on one particular method of this class - `starmap`. The syntax to use this method is as follow - 
+The `Pool` <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">class</a> in Python represents a pool of worker processes. It has methods to designate tasks to each worker and then collect the results from all workers. We will be focusing on one particular method of this class - `starmap`. The syntax to use this method is as follow - 
 ```
-pool.starmap(<Python_method>, ((<arguments_to_pass>),))
+pool.starmap(<method>, ((<arguments_to_pass>),))
 ```
 and it returns the collated result as a list with one entry.
 

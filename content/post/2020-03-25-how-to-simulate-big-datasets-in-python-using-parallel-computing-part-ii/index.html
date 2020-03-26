@@ -22,7 +22,7 @@ image:
 
 <p>This post picks up from the last <a href="https://www.drnikunj.com/post/2020-02-03-how-to-simulate-big-datasets-in-python-using-parallel-computing-part-i/" target="_blank">post</a>. We ended up calculating the rate of change of a time-dependent parameter. The current post focus on the next step - sampling this distribution of rate of change using parallel computing.</p>
 <p>Why sampling rather than randomly selecting the rates from the original distribution? This is because the rate of change in future time points may not be the same as observed in the original distribution. Moreover, sampling makes sure the sampled points follow the same distribution as the original distribution.</p>
-<p>I will make use of Kernel Density Estimation in Python (KDE). KDE is used to find the probability density function of a distribution. Moreover, KDE is also beneficial in simulating data points which follows the distribution of a specific set of points. In our case, we want to simulate rate of change which follow the original distribution and this is where KDE comes in.</p>
+<p>I will make use of Kernel Density Estimation in Python (KDE). KDE is used to find the probability density function of a distribution. Moreover, KDE is also beneficial in simulating data points which follows the distribution of a specific set of points. In our case, we want to simulate rate of change which follow the original distribution and this is where KDE comes in. To know more about KDE, please click <a href="https://deepai.org/machine-learning-glossary-and-terms/kernel-density-estimation" target="_blank">here</a>.</p>
 <div id="code" class="section level2">
 <h2>Code</h2>
 <p>You can find the full code and associated dataset file on my Github <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/rateSimulation.py" target="_blank">here</a> and <a href="https://github.com/nik-maheshwari/data-simulation/blob/master/resources/paramX_rate.csv" target="_blank">here</a>.</p>
@@ -48,8 +48,8 @@ image:
 <p>If number of cores &gt; 1, you should be able to run parallel processes.</p>
 <div id="parallel-computing-using-pool" class="section level3">
 <h3>Parallel computing using Pool</h3>
-<p>The <code>Pool</code> class in Python represents a pool of worker processes. It has methods to designate tasks to each worker and then collect the results from all workers. We will be focusing on one particular method of this class - <code>starmap</code>. The syntax to use this method is as follow -</p>
-<pre><code>pool.starmap(&lt;Python_method&gt;, ((&lt;arguments_to_pass&gt;),))</code></pre>
+<p>The <code>Pool</code> <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">class</a> in Python represents a pool of worker processes. It has methods to designate tasks to each worker and then collect the results from all workers. We will be focusing on one particular method of this class - <code>starmap</code>. The syntax to use this method is as follow -</p>
+<pre><code>pool.starmap(&lt;method&gt;, ((&lt;arguments_to_pass&gt;),))</code></pre>
 <p>and it returns the collated result as a list with one entry.</p>
 <p>For example, the following code will start 1 worker process, pass 3 arguments to a user-defined method <code>f</code> using an instance of the <code>Pool</code> class, and print the value 6.</p>
 <pre><code>from multiprocessing import Pool
