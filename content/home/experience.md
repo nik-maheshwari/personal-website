@@ -23,8 +23,11 @@ date_format = "Jan 2006"
   company_url = "https://www.bankofireland.com"
   location = "Dublin"
   date_start = "2019-11-18"
-  date_end = ""
+  date_end = "2020-05-15"
   description = """
+  * Analytical solutions through SQL, Hive, and Tableau
+  * Solutions for Credit, Capital, and Customer Conduct risk for Retail and non-Retail products and services
+  * Engaged with senior internal and external stakeholders
   """
 
 [[experience]]
