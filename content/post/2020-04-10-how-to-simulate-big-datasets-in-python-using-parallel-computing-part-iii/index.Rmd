@@ -1,0 +1,54 @@
+---
+title: 'How to simulate big datasets in Python using parallel computing - Part III :
+  Generating real world data using parallel computing'
+author: "Nikunj Maheshwari"
+date: '2020-04-10'
+categories:
+  - Simulation
+  - Python
+tags:
+  - Python
+  - simulation
+  - parallel computing
+  - Big Data
+summary: 'Simulating big dataset - part III'
+featured: yes
+image:
+  caption: 'Photo by Nikunj Maheshwari'
+  focal_point: 'center'
+---
+
+This post picks up from the last <a href="https://www.drnikunj.com/post/2020-03-25-how-to-simulate-big-datasets-in-python-using-parallel-computing-part-ii/" target="_blank">post</a> where we ended up simulating rate of change of a parameter using parallel computing. The current post focuses on the last step of this series - generating real world data using the simulated rates via parallel computing in Python.
+
+### Simulating Conditions
+Before you start the actual simulation, you need to ask yourself - 
+
+* How much data (number of observations) do you need to simulate? 
+* If it is a batch process that generates real world data (for example, a manufacturing pipeline), how long does each batch lasts for? 
+* As this would be a time-dependent data, what is the required frequency that mimics the real world data? 
+
+For example, a company has been manufacturing a chemical compound for 2 years using multiple batches. Each batch runs for 10 days, and data is collected for several key performance indicators (KPIs) at a frequency of 1 min. In this case, a batch will contain 14,400 observations (10 days x 24 hours x 60 minutes x 1). In our example, we will simulate a batch run of 14 days with the frequency of data collection set at 30 seconds. To solve this problem, we will use parallel computing in Python and our custom-made simulating function.
+
+### Parallel Computing in Python - Pool Process
+To carry out the simulation on a powerful server, we can utilise Python's parallel computing function called `pool`. We can launch several pool workers (processes) simulatneously, each simulating a batch for 2 weeks at a frequency of 30 seconds. For our purpose, we will launch 75 workers, each running 15 batches, one at a time. The following code explains it well - 
+```
+sim_df = pool.map(simulate_corr, runs, chunksize=15)
+```
+Here, `pool` size is 75, `chunksize` is 15, `runs` is a list of 1125 (it tells to run each pool worker 15 times), and `simulate_df` is the function which is passed to each pool worker. Global variables `samples` and `freq` have been initialised with 40320 (14 days x 24 hours x 60 min x 2 for a frequency of 30 seconds) and 30 respectively. Once all pool workers have finished their assigned tasks, the output is consolidated into a single df called `sim_df`. As each worker is executed independently, there is no dependency between any workers, and this simulates a 'batch' production environment (i.e. each batch is run independently of each other).
+
+### Simulating Function
+As we want to simulate observations which are comparable to the original dataset, one of the key parameters to keep in check is correlation. In a manufacturing environment, several KPIs would be dependent on each other, thereby having a correlation among them. For example, an increase in oxygen levels is correlated with a decrease in nitogen levels in a bioreactor. To simulate real world data, we must try to keep the correlation as close as possible to the correlation in the original dataset. 
+
+To add randomness in how we pick a column to simulate against, we follow the algorithm as described - to simulate a row of observation, pick a random column, and simulate other columns with respect to the random column, keeping the correlation the same as in the original dataset. This is done by the line below -
+```
+nextValue = start + (sdev[col]/sdev[randomCol])*corr*delta*freq
+```
+Here, `start` is the starting value (mean) or the last value simulated, `randomCol` is a random column, `col` is one of the other columns, `corr` is the correlation between `randomCol` and `col` in the original dataset, `delta` is a random simulated rate value of `col` (we simulated this in Part II), and `freq` is in seconds. `sdev` is the standard deviation of columns calculated from the original dataset. This formula gives the next simulated value (`nextValue`) for `col` and further checks are done to ensure this value remains within the upper and lower bounds.
+The above process is repeated until all columns have been simulated with respect to `randomCol`. The new row is appended to a data.frame and the loop continues until the Pool process reaches the maximum number of iterations.
+
+
+## Conclusion
+
+In this example, the simulations ran for ~40 days on a 80 core server, each core with 4GB RAM. The resulting dataset contained ~44 million time series simulated observations, all created from scratch and using the original small dataset. The complete code and detailed explanation is available on my Github [here](https://github.com/nik-maheshwari/data-simulation).
+
+Thank you for reading. I will be starting a new series on how to analyse big data and build machine learning models using Spark, and we will be using part of this dataset for the analyses.
