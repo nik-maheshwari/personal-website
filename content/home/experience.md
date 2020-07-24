@@ -26,8 +26,8 @@ date_format = "Jan 2006"
   date_start = "2020-05-28"
   date_end = ""
   description = """
-  * Guided projects in the fields of data science, machine learning and computer science
-  * `R` and `Python`
+  * Guided projects in the fields of `data science`, `machine learning` and `statistics`
+  * `R` and `Python`, all levels
   * Deliver projects with code, explanation, and quiz to thousands of learners worldwide
   """
 
@@ -39,7 +39,7 @@ date_format = "Jan 2006"
   date_start = "2019-11-18"
   date_end = "2020-05-15"
   description = """
-  * Analytical solutions through SQL, Hive, and Tableau
+  * Analytical solutions through `SQL`, `Hive`, `Spark`, and `Tableau`
   * Solutions for Credit, Capital, and Customer Conduct risk for Retail and non-Retail products and services
   * Engaged with senior internal and external stakeholders
   """
@@ -66,7 +66,7 @@ date_format = "Jan 2006"
   date_start = "2017-10-01"
   date_end = "2018-08-24"
   description = """
-  * `Machine learning` to predict risks from food pathogens
+  * `Machine learning` to monitor and predict risks from food pathogens
   * 5 leading Irish dairy and meat producers as clients
   * `Patent` under processing
   """
@@ -79,7 +79,7 @@ date_format = "Jan 2006"
   date_start = "2013-09-07"
   date_end = "2017-09-01"
   description = """
-  * Analysed 2785 bacterial genomes for lantibiotics using custom-built automated pipeline
+  * Analysed 2785 bacterial genomes for `lantibiotics` using custom-built `automated pipeline`
   * Built `machine learning` models to predict bioactivities of peptides
   * Mass spectrometry analyses of antimicrobial peptides
   """
