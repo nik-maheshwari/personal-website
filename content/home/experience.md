@@ -17,6 +17,20 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+[[experience]]
+  title = "Course Instructor"
+  company = "Coursera"
+  company_url = "https://www.coursera.org/instructor/~31232229"
+  location = "Dublin"
+  date_start = "2020-05-28"
+  date_end = ""
+  description = """
+  * Guided projects in the fields of data science, machine learning and computer science
+  * `R` and `Python`
+  * Deliver projects with code, explanation, and quiz to thousands of learners worldwide
+  """
+
 [[experience]]
   title = "Analytics Manager"
   company = "Bank of Ireland"
@@ -31,7 +45,7 @@ date_format = "Jan 2006"
   """
 
 [[experience]]
-  title = "Software Developer"
+  title = "Data Scientist"
   company = "NIBRT"
   company_url = "https://www.nibrt.ie"
   location = "Dublin"
@@ -55,6 +69,19 @@ date_format = "Jan 2006"
   * `Machine learning` to predict risks from food pathogens
   * 5 leading Irish dairy and meat producers as clients
   * `Patent` under processing
+  """
+
+[[experience]]
+  title = "PhD Graduate"
+  company = "Conway Institute, University College Dublin"
+  company_url = "http://shieldslab.ucd.ie/"
+  location = "Dublin"
+  date_start = "2013-09-07"
+  date_end = "2017-09-01"
+  description = """
+  * Analysed 2785 bacterial genomes for lantibiotics using custom-built automated pipeline
+  * Built `machine learning` models to predict bioactivities of peptides
+  * Mass spectrometry analyses of antimicrobial peptides
   """
 
 +++
