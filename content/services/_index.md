@@ -12,7 +12,7 @@ Few things to note -
 
 * __Location__ - `Dublin, Ireland`
 * __Mode of teaching__ - `In-person`, `Remote`
-* __Pricing__ - `€50/hr` per session
+* __Pricing__ - `€70/hr` per session
   + Online session - Payment required prior to the session
   + In-person session - Payment required onsite
   + Group Discount available
