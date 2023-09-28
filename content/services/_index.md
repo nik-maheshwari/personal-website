@@ -9,14 +9,23 @@ view: 2
 ## Career Coach
 I have been guiding and mentoring professionals in their careers for over 5+ years, landing them jobs in prestigious Fortune500 organisations. My unique blend of working in academia, industry and professional services provides me an edge in coaching as you progress through your careers at different stages.
 
-Contact me [here]({{< ref "/#contact" >}}) if you seek advice on career, goal settings, CV preparation, interview preparation, contract negotiations, etc. 
+Contact me [here]({{< ref "/#contact" >}}) and I will teach you how to - 
+
+* Research the company and the role
+* Craft your resume and cover letter
+* Prepare for common and tricky interview questions
+* Ask smart and relevant questions to the interviewer
+* Follow up after the interview and negotiate your salary
+* Set career goal settings
+
+A common framework is as below -
 
 * __Introductory call__ - Free, 15 minutes
 * __1 session__ - `€60` - 60 minutes. Any from below, or customised to your needs
 * __3 sessions__ - `€150` - 60 minutes each
   + Session 1 - Role discussion, SWOT Analysis, CV Preparation
   + Session 2 - Mock Technical Interview
-  + Session 3 - Mock Behavioural Interview
+  + Session 3 - Mock Behavioural/Situational Interview
 
 ## Tutoring
 I am passionate about teaching data science and programming fundamentals to students and professionals in my free time, and have been doing so for the last 8+ years. I started off by teaching maths and science to school and college students, and I eventually found my niche area of teaching `data science` and `programming`. For any informal queries, give me a shout [here]({{< ref "/#contact" >}}).
