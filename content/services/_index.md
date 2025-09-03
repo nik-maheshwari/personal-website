@@ -7,7 +7,7 @@ view: 2
 ---
 
 ## Career Coach
-I have been guiding and mentoring professionals in their careers for over 5+ years, landing them jobs in prestigious Fortune500 organisations. My unique blend of working in academia, industry and professional services provides me an edge in coaching as you progress through your careers at different stages.
+I have been guiding and mentoring professionals in their careers for over 5+ years, landing them jobs in prestigious Fortune500 organisations. My unique blend of working in academia, industry and professional services provides me an edge in coaching as you progress through your careers at different stages and industries.
 
 Contact me [here]({{< ref "/#contact" >}}) and I will teach you how to - 
 
@@ -53,5 +53,6 @@ I have been coding since I was 15 years old, and have knowledge of scripting lan
 If you are interested in availing any of the above services, or anything not mentioned here but is related to `data science/programming`, contact me for a free initial consultation using the form [here]({{< ref "/#contact" >}}). Please provide as much information as possible and I will get back to you within 24 hours. If I believe I can cover what you require, I will take on the tutoring task. I have 100% success rate in project completions till date (I even completed my PhD thesis 1 week before the deadline!).
 
 #### __DISCLAIMER__ 
-I only tutor part-time as I have a full time job. Any code provided by me is for tutoring purpose only (unless the project's scope is a production level solution), and I claim no responsibility of the code's implementation in production environment.
+I only tutor part-time as I have a full time job. Any code provided by me is for tutoring purpose only, and I claim no responsibility of the code's implementation in production environment.
+
 As a career coach, I can't guarantee that you will land a job, but you would come out stronger!
